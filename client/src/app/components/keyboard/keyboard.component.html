@@ -1,0 +1,7 @@
+<div>
+    <div *ngFor="let lettersRow of letters; let keyboardRow = index" class="keyboard-row">
+        <button *ngIf="keyboardRow == 2" class="enter-button" (click)="keyboardService.handleEnterPress()">Enter</button>
+        <button *ngFor="let letter of lettersRow" class="letter-button" (click)="keyboardService.handleLetterPress(letter)">{{ letter }}</button>
+        <button *ngIf="keyboardRow == 2" class="backspace-button material-symbols-outlined" (click)="keyboardService.handleBackspacePress()">backspace</button>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="board-buttons">
+    <div class="green-button"></div>
+    <div class="yellow-button"></div>
+    <div class="gray-button"></div>
+    <div class="reset-button material-symbols-outlined" (click)="resetBoard()">restart_alt</div>
+</div>
+
+<div class="words-list">
+    <div class="word-container-row">
+        <div *ngFor="let _ of [].constructor(keyboardService.maxWordLength); let letterIndex = index" class="letter-container">{{ keyboardService.currentWord[letterIndex] }}</div>
+    </div>
+    <div *ngFor="let word of keyboardService.submittedWords" class="word-container-row">
+        <div *ngFor="let _ of [].constructor(keyboardService.maxWordLength); let letterIndex = index" class="letter-container">{{ word[letterIndex] }}</div>
+    </div>
+</div>

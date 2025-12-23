@@ -1,0 +1,59 @@
+.board-buttons {
+    display: flex;
+    margin-bottom: 10px;
+    gap: 10px;
+    align-items: center;
+}
+
+.board-buttons div  {
+    cursor: pointer;
+}
+
+.green-button, .yellow-button, .gray-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+}
+
+.green-button {
+    background-color: green;
+}
+
+.yellow-button {
+    background-color: yellow;
+}
+
+.gray-button {
+    background-color: gray;
+}
+
+.reset-button {
+    color: red;
+    font-size: 40px;
+}
+
+.words-list {
+    height: 60vh;
+    overflow-y: auto;
+    padding-right: 15px;
+}
+
+.word-container-row {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 5px;
+}
+
+.letter-container {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: black;
+    border-color: rgb(70, 70, 70);
+    border-style: solid;
+    font-size: 2em;
+    font-weight: bold;
+}

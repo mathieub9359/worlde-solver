@@ -1,0 +1,24 @@
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.words-info-container {
+    display: flex;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+}
+
+.word-board {
+    width: auto;
+}
+
+.keyboard {
+    display: flex;
+    justify-content: center;
+    justify-self: flex-end;
+    margin-top: auto;
+    margin-bottom: 25px;
+}

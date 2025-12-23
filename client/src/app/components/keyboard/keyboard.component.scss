@@ -1,0 +1,30 @@
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+}
+
+.letter-button, .enter-button, .backspace-button {
+    width: 45px;
+    height: 60px;
+    color: white;
+    background-color: grey;
+    border-style: solid;
+    border-radius: 7px;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.enter-button {
+    width: 60px;
+    font-size: 1em;
+}
+
+.backspace-button {
+    width: 60px;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+button:hover {
+    cursor: pointer;
+}
