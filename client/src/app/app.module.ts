@@ -6,13 +6,15 @@ import { MainPageComponent } from './pages/main-page/main-page.component';
 import { AppComponent } from './pages/app/app.component';
 import { KeyboardComponent } from './components/keyboard/keyboard.component';
 import { BoardComponent } from './components/board/board.component';
+import { SolverComponent } from './components/solver/solver.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainPageComponent,
     KeyboardComponent,
-    BoardComponent
+    BoardComponent,
+    SolverComponent
   ],
   imports: [
     BrowserModule,

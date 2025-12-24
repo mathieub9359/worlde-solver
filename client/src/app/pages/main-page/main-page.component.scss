@@ -5,6 +5,7 @@
 }
 
 .words-info-container {
+    height: 65vh;
     display: flex;
     margin-left: 20px;
     margin-right: 20px;
@@ -13,6 +14,12 @@
 
 .word-board {
     width: auto;
+}
+
+.vertical-delimiter {
+    height: 65vh;
+    border-left: 4px solid rgb(109, 109, 109);
+    margin-left: 50px;
 }
 
 .keyboard {
