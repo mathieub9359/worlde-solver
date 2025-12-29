@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { KeyboardService } from '../../services/keyboard/keyboard.service';
+import { BoardService } from '../../services/board/board.service';
 import { LetterColor } from '../../enums/letter-color';
 
 @Component({
@@ -12,14 +12,14 @@ import { LetterColor } from '../../enums/letter-color';
 export class BoardComponent {
   selectedColor = LetterColor.Gray
 
-  constructor(readonly keyboardService: KeyboardService) {}
+  constructor(readonly boardService: BoardService) {}
 
   public get letterColor(): typeof LetterColor {
     return LetterColor; 
   }
 
   resetBoard() {
-    this.keyboardService.resetBoard()
+    this.boardService.resetBoard()
   }
 
   selectLetterColor(selectedColor: LetterColor) {
@@ -27,7 +27,7 @@ export class BoardComponent {
   }
 
   getStyleColorOfLetter(word: string, letterIndex: number) {
-    let colorConstraints: LetterColor[] = this.keyboardService.getColorConstraintsOfWord(word)
+    let colorConstraints: LetterColor[] = this.boardService.getColorConstraintsOfWord(word)
     switch(colorConstraints[letterIndex]) {
       case LetterColor.Gray:
         return "gray-button"

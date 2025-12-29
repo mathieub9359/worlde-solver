@@ -7,9 +7,9 @@
 
 <div class="words-list">
     <div class="word-container-row">
-        <div *ngFor="let _ of [].constructor(keyboardService.maxWordLength); let letterIndex = index" class="letter-container">{{ keyboardService.currentWord[letterIndex] }}</div>
+        <div *ngFor="let _ of [].constructor(boardService.maxWordLength); let letterIndex = index" class="letter-container">{{ boardService.currentWord[letterIndex] }}</div>
     </div>
-    <div *ngFor="let word of keyboardService.submittedWords.slice().reverse()" class="word-container-row">
-        <div *ngFor="let _ of [].constructor(keyboardService.maxWordLength); let letterIndex = index" class="letter-container" [class]="this.getStyleColorOfLetter(word, letterIndex)" (click)="keyboardService.updateColorConstraints(word, letterIndex, selectedColor)">{{ word[letterIndex] }}</div>
+    <div *ngFor="let word of boardService.submittedWords.slice().reverse()" class="word-container-row">
+        <div *ngFor="let _ of [].constructor(boardService.maxWordLength); let letterIndex = index" class="letter-container" [class]="this.getStyleColorOfLetter(word, letterIndex)" (click)="boardService.updateColorConstraints(word, letterIndex, selectedColor)">{{ word[letterIndex] }}</div>
     </div>
 </div>

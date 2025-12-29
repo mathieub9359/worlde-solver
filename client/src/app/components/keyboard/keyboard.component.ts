@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { KeyboardService } from '../../services/keyboard/keyboard.service';
+import { BoardService } from '../../services/board/board.service';
 import { HostListener } from '@angular/core';
 
 @Component({
@@ -10,7 +10,7 @@ import { HostListener } from '@angular/core';
 })
 
 export class KeyboardComponent {
-  constructor(readonly keyboardService: KeyboardService) {}
+  constructor(readonly boardService: BoardService) {}
 
   firstRowLetters = []
   letters: Array<Array<string>> = [
@@ -22,11 +22,11 @@ export class KeyboardComponent {
   @HostListener('document:keydown', ['$event'])
   handleKeyboardPress(event: KeyboardEvent) {
     if (event.key.match("^[a-zA-Z]$")) {
-      this.keyboardService.handleLetterPress(event.key)
+      this.boardService.handleLetterPress(event.key)
     } else if (event.key === 'Enter') {
-      this.keyboardService.handleEnterPress()
+      this.boardService.handleEnterPress()
     } else if (event.key === 'Backspace') {
-      this.keyboardService.handleBackspacePress()
+      this.boardService.handleBackspacePress()
     }
   }
 }

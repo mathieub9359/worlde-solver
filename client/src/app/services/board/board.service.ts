@@ -5,7 +5,7 @@ import { LetterColor } from '../../enums/letter-color';
 @Injectable({
   providedIn: 'root'
 })
-export class KeyboardService {
+export class BoardService {
   constructor() {}
 
   maxWordLength = 5
