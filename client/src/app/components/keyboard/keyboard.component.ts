@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BoardService } from '../../services/board/board.service';
 import { HostListener } from '@angular/core';
+import { SolverService } from '../../services/solver/solver.service';
 
 @Component({
   selector: 'app-keyboard',
@@ -10,7 +11,7 @@ import { HostListener } from '@angular/core';
 })
 
 export class KeyboardComponent {
-  constructor(readonly boardService: BoardService) {}
+  constructor(readonly boardService: BoardService, private readonly solverService: SolverService) {}
 
   firstRowLetters = []
   letters: Array<Array<string>> = [
@@ -25,6 +26,7 @@ export class KeyboardComponent {
       this.boardService.handleLetterPress(event.key)
     } else if (event.key === 'Enter') {
       this.boardService.handleEnterPress()
+      this.solverService.updateSolverResult()
     } else if (event.key === 'Backspace') {
       this.boardService.handleBackspacePress()
     }

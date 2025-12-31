@@ -1,15 +1,19 @@
 <div class="board-buttons">
-    <div class="gray-button" [ngClass]="{'active-color': selectedColor == letterColor.Gray}" (click)="selectLetterColor(letterColor.Gray)"></div>
-    <div class="yellow-button" [ngClass]="{'active-color': selectedColor == letterColor.Yellow}" (click)="selectLetterColor(letterColor.Yellow)"></div>
-    <div class="green-button" [ngClass]="{'active-color': selectedColor == letterColor.Green}" (click)="selectLetterColor(letterColor.Green)"></div>
+    <div class="gray-button" [ngClass]="{'active-color': selectedColor === letterColor.Gray}" (click)="selectLetterColor(letterColor.Gray)"></div>
+    <div class="yellow-button" [ngClass]="{'active-color': selectedColor === letterColor.Yellow}" (click)="selectLetterColor(letterColor.Yellow)"></div>
+    <div class="green-button" [ngClass]="{'active-color': selectedColor === letterColor.Green}" (click)="selectLetterColor(letterColor.Green)"></div>
     <div class="reset-button material-symbols-outlined" (click)="resetBoard()">restart_alt</div>
 </div>
 
+<div class="error">
+    {{ boardService.errorMessage }}
+</div>
+
 <div class="words-list">
-    <div class="word-container-row">
+    <div *ngIf="!boardService.guessesAreCompleted()" class="word-container-row">
         <div *ngFor="let _ of [].constructor(boardService.maxWordLength); let letterIndex = index" class="letter-container">{{ boardService.currentWord[letterIndex] }}</div>
     </div>
     <div *ngFor="let word of boardService.submittedWords.slice().reverse()" class="word-container-row">
-        <div *ngFor="let _ of [].constructor(boardService.maxWordLength); let letterIndex = index" class="letter-container" [class]="this.getStyleColorOfLetter(word, letterIndex)" (click)="boardService.updateColorConstraints(word, letterIndex, selectedColor)">{{ word[letterIndex] }}</div>
+        <div *ngFor="let _ of [].constructor(boardService.maxWordLength); let letterIndex = index" class="letter-container" [class]="this.getStyleColorOfLetter(word, letterIndex)" (click)="updateColorConstraints(word, letterIndex, selectedColor)">{{ word[letterIndex] }}</div>
     </div>
 </div>

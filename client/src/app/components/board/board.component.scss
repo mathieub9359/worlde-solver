@@ -38,6 +38,12 @@ div > .gray-button {
     cursor: pointer;
 }
 
+.error {
+    color: red;
+    font-size: 1.75em;
+    margin-bottom: 10px;
+}
+
 .words-list {
     height: 60vh;
     overflow-y: auto;

@@ -1,0 +1,15 @@
+<div class="solver-container">
+    <div>
+        <h2>Possible Answers ({{ solverService.possibleAnswers.length }}): </h2>
+        <div class="word-list">
+            <div *ngFor="let word of solverService.possibleAnswers"> {{ word }}</div>
+        </div>
+    </div>
+    
+    <div>
+        <h2>Best Guesses: </h2>
+        <div class="word-list">
+            <div *ngFor="let word of solverService.bestGuessWords"> {{ word }}</div>
+        </div>
+    </div>
+</div>

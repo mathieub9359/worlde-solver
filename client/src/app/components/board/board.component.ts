@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BoardService } from '../../services/board/board.service';
 import { LetterColor } from '../../enums/letter-color';
+import { SolverService } from '../../services/solver/solver.service';
 
 @Component({
   selector: 'app-board',
@@ -12,7 +13,7 @@ import { LetterColor } from '../../enums/letter-color';
 export class BoardComponent {
   selectedColor = LetterColor.Gray
 
-  constructor(readonly boardService: BoardService) {}
+  constructor(readonly boardService: BoardService, private readonly solverService: SolverService) {}
 
   public get letterColor(): typeof LetterColor {
     return LetterColor; 
@@ -20,10 +21,16 @@ export class BoardComponent {
 
   resetBoard() {
     this.boardService.resetBoard()
+    this.solverService.updateSolverResult();
   }
 
   selectLetterColor(selectedColor: LetterColor) {
     this.selectedColor = selectedColor
+  }
+
+  updateColorConstraints(word: string, letterIndex: number, color: LetterColor) {
+    this.boardService.updateColorConstraints(word, letterIndex, color);
+    this.solverService.updateSolverResult();
   }
 
   getStyleColorOfLetter(word: string, letterIndex: number) {
@@ -39,4 +46,5 @@ export class BoardComponent {
         return ""
     }
   }
+
 }
